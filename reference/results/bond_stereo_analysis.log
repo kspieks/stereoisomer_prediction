@@ -1,0 +1,191 @@
+Processing 19 file(s)...
+
+  bace.csv                  |    1513 mols |    1112 skip |     401 parsed | atom:  383 bond:   55 | 0.20s
+  bbbp.csv                  |    2039 mols |    1321 skip |     718 parsed | atom:  637 bond:  148 | 0.28s
+  chembl.csv                |  456309 mols |  456309 skip |       0 parsed | atom:    0 bond:    0 | 9.48s
+  clintox.csv               |    1478 mols |     784 skip |     694 parsed | atom:  616 bond:  150 | 0.29s
+  delaney.csv               |    1128 mols |    1120 skip |       8 parsed | atom:    0 bond:    6 | 0.00s
+  freesolv.csv              |     642 mols |     580 skip |      62 parsed | atom:   49 bond:   11 | 0.01s
+  hiv.csv                   |   41127 mols |   41127 skip |       0 parsed | atom:    0 bond:    0 | 0.02s
+  lipo.csv                  |    4200 mols |    3014 skip |    1186 parsed | atom: 1127 bond:   80 | 0.73s
+  muv.csv                   |   93087 mols |   84978 skip |    8109 parsed | atom:    0 bond: 8109 | 2.46s
+  pcba.csv                  |  437929 mols |  361696 skip |   76233 parsed | atom:30817 bond:47534 | 28.13s
+  pdbbind_core.csv          |     168 mols |     168 skip |       0 parsed | atom:    0 bond:    0 | 0.00s
+  pdbbind_full.csv          |    9880 mols |    9880 skip |       0 parsed | atom:    0 bond:    0 | 0.01s
+  pdbbind_refined.csv       |    3040 mols |    3040 skip |       0 parsed | atom:    0 bond:    0 | 0.00s
+  qm7.csv                   |    6830 mols |    6830 skip |       0 parsed | atom:    0 bond:    0 | 0.00s
+  qm8.csv                   |   21786 mols |   21786 skip |       0 parsed | atom:    0 bond:    0 | 0.03s
+  qm9.csv                   |  133885 mols |  133885 skip |       0 parsed | atom:    0 bond:    0 | 0.16s
+  sider.csv                 |    1427 mols |    1122 skip |     305 parsed | atom:  288 bond:   30 | 0.27s
+  tox21.csv                 |    7831 mols |    6149 skip |    1682 parsed | atom: 1321 bond:  465 | 0.66s
+  toxcast.csv               |    8576 mols |    6717 skip |    1859 parsed | atom: 1461 bond:  550 | 0.90s
+
+==========================================================================================
+RESULTS
+==========================================================================================
+
+Total molecules across all datasets: 1232875
+Skipped (no @, /, or \ in SMILES):  1141618
+Processed with RDKit:                91257
+Failed parses:                       2
+Molecules with any stereochemistry:  91246
+  - Atom chirality only:             34108
+  - Bond stereo only:                54547
+  - Both:                            2591
+Unique stereo canonical SMILES:      80980
+
+Total time: 43.64s
+
+──────────────────────────────────────────────────────────────────────────────────────────
+bond.GetStereo() value counts (bonds with stereo != STEREONONE):
+──────────────────────────────────────────────────────────────────────────────────────────
+  STEREOTRANS              :      43097
+  STEREOCIS                :      18908
+  STEREOZ                  :          3
+
+──────────────────────────────────────────────────────────────────────────────────────────
+int(bond.GetStereo()) value counts:
+──────────────────────────────────────────────────────────────────────────────────────────
+  5:      43097
+  4:      18908
+  2:          3
+
+──────────────────────────────────────────────────────────────────────────────────────────
+bond.GetBondDir() value counts (bonds with dir != NONE):
+──────────────────────────────────────────────────────────────────────────────────────────
+  ENDUPRIGHT               :      98298
+  ENDDOWNRIGHT             :      23170
+
+──────────────────────────────────────────────────────────────────────────────────────────
+int(bond.GetBondDir()) value counts:
+──────────────────────────────────────────────────────────────────────────────────────────
+  4:      98298
+  3:      23170
+
+──────────────────────────────────────────────────────────────────────────────────────────
+bond.GetProp('_CIPCode') value counts (after AssignCIPLabels):
+──────────────────────────────────────────────────────────────────────────────────────────
+  E:      43107
+  Z:      18897
+  z:          1
+
+──────────────────────────────────────────────────────────────────────────────────────────
+Atom chirality summary (same as atom analysis):
+──────────────────────────────────────────────────────────────────────────────────────────
+  a.GetChiralTag():
+    CHI_TETRAHEDRAL_CCW           :      59805
+    CHI_TETRAHEDRAL_CW            :      57160
+  atom.GetProp('_CIPCode'):
+    S:      64987
+    R:      51718
+    r:        194
+    s:         66
+
+──────────────────────────────────────────────────────────────────────────────────────────
+BondStereo str -> int mapping:
+──────────────────────────────────────────────────────────────────────────────────────────
+  STEREOZ                   -> [2]
+  STEREOCIS                 -> [4]
+  STEREOTRANS               -> [5]
+
+──────────────────────────────────────────────────────────────────────────────────────────
+BondDir str -> int mapping:
+──────────────────────────────────────────────────────────────────────────────────────────
+  ENDDOWNRIGHT              -> [3]
+  ENDUPRIGHT                -> [4]
+
+──────────────────────────────────────────────────────────────────────────────────────────
+Example molecules per BondStereo (up to 5):
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  STEREOCIS:
+    C/C=C\C=C\C[C@H]1CC[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)c2cc(C)cc(C(=O)N(CCC)CCC)c2)C1
+    CC1(C)Cc2ccccc2/C(=[NH+]/[C@@H](Cc2ccccc2)C(=O)[O-])N1
+    COc1ccc(-c2nsc(C)c2C(=O)/N=C(/N)NCc2cc(C)c(NC(C)=O)c(Cl)c2)cc1
+    COc1ccc(-c2nsc(C)c2C(=O)/N=C(/N)NCc2cc(Cl)c(N)c(Cl)c2)cc1
+    CCCN(CCC)C(=O)c1cc(C(=O)NC(Cc2cc(F)cc(F)c2)C(O)C[NH2+]Cc2cccc(OC)c2)cc(/C(C)=N\OC)c1
+
+  STEREOTRANS:
+    C/C=C\C=C\C[C@H]1CC[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)c2cc(C)cc(C(=O)N(CCC)CCC)c2)C1
+    Cc1cc2cc(c1)[C@@H](O)[NH2+][C@@H](c1ccccc1)C/C=C/COC[C@@H]([C@H](O)C[NH2+]Cc1cccc(C(C)C)c1)NC2=O
+    CCCCNC(=O)[C@@H](NC(=O)[C@H](C)C[C@H](O)[C@@H]1CSC/C=C/CSC[C@H](NC(=O)OC(C)(C)C)C(=O)N[C@@H](C)C(=O)N1)C(C)C
+    CCCCNC(=O)[C@H](C)C[C@H](O)[C@@H]1CSC/C=C/CS[C@H]2CCC[NH2+][C@H]2C(=O)N[C@@H](C)C(=O)N1
+    CC(C)c1cccc(C[NH2+]C[C@@H](O)[C@@H]2COC/C=C/C[C@@H](c3ccccc3)NC(=O)c3cc(cc(N(C)S(C)(=O)=O)c3)C(=O)N2)c1
+
+  STEREOZ:
+    [H]/[NH+]=C(\N)C1=CC(=O)/C(=C\C=c2ccc(=C(N)[NH3+])cc2)C=C1
+    [H]/[NH+]=C(\N)c1ccc(OCCCCCOc2ccc(/C(N)=[NH+]/[H])cc2)cc1
+
+──────────────────────────────────────────────────────────────────────────────────────────
+Example molecules per BondDir (up to 5):
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  ENDDOWNRIGHT:
+    C/C=C\C=C\C[C@H]1CC[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)c2cc(C)cc(C(=O)N(CCC)CCC)c2)C1
+    CC(=O)Nc1c(Cl)cc(C/N=C(\N)NC(=O)Cn2ccc3ccccc32)cc1Cl
+    CCCN(CCC)C(=O)c1cc(C(=O)NC(Cc2cc(F)cc(F)c2)C(O)C[NH2+]Cc2cccc(OC)c2)cc(/C(C)=N\OC)c1
+    CCCN(CCC)C(=O)c1cc(C(=O)NC(Cc2cc(F)cc(F)c2)C(O)C[NH2+]Cc2cccc(OC)c2)cc(/C(C)=N\O)c1
+    CC(C)c1cccc(C[NH2+]CC(O)C2COC/C=C\CCN(C)C(=O)c3cc(cc(N(C)S(C)(=O)=O)c3)C(=O)N2)c1
+
+  ENDUPRIGHT:
+    C/C=C\C=C\C[C@H]1CC[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)c2cc(C)cc(C(=O)N(CCC)CCC)c2)C1
+    Cc1cc2cc(c1)[C@@H](O)[NH2+][C@@H](c1ccccc1)C/C=C/COC[C@@H]([C@H](O)C[NH2+]Cc1cccc(C(C)C)c1)NC2=O
+    CCCCNC(=O)[C@@H](NC(=O)[C@H](C)C[C@H](O)[C@@H]1CSC/C=C/CSC[C@H](NC(=O)OC(C)(C)C)C(=O)N[C@@H](C)C(=O)N1)C(C)C
+    CCCCNC(=O)[C@H](C)C[C@H](O)[C@@H]1CSC/C=C/CS[C@H]2CCC[NH2+][C@H]2C(=O)N[C@@H](C)C(=O)N1
+    CC(C)c1cccc(C[NH2+]C[C@@H](O)[C@@H]2COC/C=C/C[C@@H](c3ccccc3)NC(=O)c3cc(cc(N(C)S(C)(=O)=O)c3)C(=O)N2)c1
+
+──────────────────────────────────────────────────────────────────────────────────────────
+Example molecules per bond CIPCode (up to 5):
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  E:
+    C/C=C\C=C\C[C@H]1CC[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)c2cc(C)cc(C(=O)N(CCC)CCC)c2)C1
+    Cc1cc2cc(c1)[C@@H](O)[NH2+][C@@H](c1ccccc1)C/C=C/COC[C@@H]([C@H](O)C[NH2+]Cc1cccc(C(C)C)c1)NC2=O
+    CCCCNC(=O)[C@@H](NC(=O)[C@H](C)C[C@H](O)[C@@H]1CSC/C=C/CSC[C@H](NC(=O)OC(C)(C)C)C(=O)N[C@@H](C)C(=O)N1)C(C)C
+    CCCCNC(=O)[C@H](C)C[C@H](O)[C@@H]1CSC/C=C/CS[C@H]2CCC[NH2+][C@H]2C(=O)N[C@@H](C)C(=O)N1
+    CC(C)c1cccc(C[NH2+]C[C@@H](O)[C@@H]2COC/C=C/C[C@@H](c3ccccc3)NC(=O)c3cc(cc(N(C)S(C)(=O)=O)c3)C(=O)N2)c1
+
+  Z:
+    C/C=C\C=C\C[C@H]1CC[NH2+][C@@H]([C@@H](O)[C@H](Cc2cc(F)cc(F)c2)NC(=O)c2cc(C)cc(C(=O)N(CCC)CCC)c2)C1
+    CC1(C)Cc2ccccc2/C(=[NH+]/[C@@H](Cc2ccccc2)C(=O)[O-])N1
+    COc1ccc(-c2nsc(C)c2C(=O)/N=C(/N)NCc2cc(C)c(NC(C)=O)c(Cl)c2)cc1
+    COc1ccc(-c2nsc(C)c2C(=O)/N=C(/N)NCc2cc(Cl)c(N)c(Cl)c2)cc1
+    CCCN(CCC)C(=O)c1cc(C(=O)NC(Cc2cc(F)cc(F)c2)C(O)C[NH2+]Cc2cccc(OC)c2)cc(/C(C)=N\OC)c1
+
+  z:
+    CC1(C)[C@@H]2CC[C@@]1(CS(=O)(=O)O)C(=O)C2.CN1[C@@H](c2ccccc2)C/C(=N\O)C[C@H]1c1ccccc1
+
+──────────────────────────────────────────────────────────────────────────────────────────
+Per-dataset summary:
+──────────────────────────────────────────────────────────────────────────────────────────
+  Dataset              |   Total |    Skip |  Parsed | AtomSt | BondSt | %Stereo |  Time
+  ────────────────────-+-───────-+-───────-+-───────-+-──────-+-──────-+-───────-+-─────
+  bace                 |    1513 |    1112 |     401 |    383 |     55 |   26.4% |  0.2s
+  bbbp                 |    2039 |    1321 |     718 |    637 |    148 |   35.2% |  0.3s
+  chembl               |  456309 |  456309 |       0 |      0 |      0 |    0.0% |  9.5s
+  clintox              |    1478 |     784 |     694 |    616 |    150 |   47.0% |  0.3s
+  delaney              |    1128 |    1120 |       8 |      0 |      6 |    0.5% |  0.0s
+  freesolv             |     642 |     580 |      62 |     49 |     11 |    9.3% |  0.0s
+  hiv                  |   41127 |   41127 |       0 |      0 |      0 |    0.0% |  0.0s
+  lipo                 |    4200 |    3014 |    1186 |   1127 |     80 |   28.2% |  0.7s
+  muv                  |   93087 |   84978 |    8109 |      0 |   8109 |    8.7% |  2.5s
+  pcba                 |  437929 |  361696 |   76233 |  30817 |  47534 |   17.4% | 28.1s
+  pdbbind_core         |     168 |     168 |       0 |      0 |      0 |    0.0% |  0.0s
+  pdbbind_full         |    9880 |    9880 |       0 |      0 |      0 |    0.0% |  0.0s
+  pdbbind_refined      |    3040 |    3040 |       0 |      0 |      0 |    0.0% |  0.0s
+  qm7                  |    6830 |    6830 |       0 |      0 |      0 |    0.0% |  0.0s
+  qm8                  |   21786 |   21786 |       0 |      0 |      0 |    0.0% |  0.0s
+  qm9                  |  133885 |  133885 |       0 |      0 |      0 |    0.0% |  0.2s
+  sider                |    1427 |    1122 |     305 |    288 |     30 |   21.4% |  0.3s
+  tox21                |    7831 |    6149 |    1682 |   1321 |    465 |   21.5% |  0.7s
+  toxcast              |    8576 |    6717 |    1859 |   1461 |    550 |   21.6% |  0.9s
+
+  Datasets with NO stereochemistry at all:
+    - chembl (456309 molecules)
+    - hiv (41127 molecules)
+    - pdbbind_core (168 molecules)
+    - pdbbind_full (9880 molecules)
+    - pdbbind_refined (3040 molecules)
+    - qm7 (6830 molecules)
+    - qm8 (21786 molecules)
+    - qm9 (133885 molecules)
