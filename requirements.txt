@@ -1,0 +1,13 @@
+# Core dependencies for stereoisomer_prediction
+# Tested with Python 3.11 and chemprop v2.2.2
+#
+# Recommended: install chemprop first (which pulls torch, rdkit, lightning, etc.) then install any remaining packages listed here.
+#
+# pip install chemprop==2.2.2
+# pip install scikit-learn pandas numpy jupyter
+
+chemprop==2.2.2
+scikit-learn>=1.3
+pandas>=2.0
+numpy>=1.24
+jupyter
